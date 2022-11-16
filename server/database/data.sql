@@ -1,0 +1,5 @@
+BEGIN TRANSACTION;
+
+INSERT INTO users (user_id, username) VALUES ('1','user1');
+
+COMMIT TRANSACTION;
