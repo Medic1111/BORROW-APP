@@ -20,7 +20,18 @@ POST http://localhost:3002/api/v1/register HTTP/1.1
 Content-Type: application/json
 
 {
-  "email": "2@aol.com",
-  "username": "user2",
+  "email": "9@aol.com",
+  "username": "user9",
+  "password": "password"
+}
+
+### 
+
+POST http://localhost:3002/api/v1/login HTTP/1.1
+Content-Type: application/json
+
+{
+  "email": "9@aol.com",
+  "username": "user9",
   "password": "password"
 }
