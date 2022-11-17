@@ -19,7 +19,7 @@ const registerControl = (req, res) => {
       if (error)
         return res.status(500).json({ message: "Oops, something went wrong" });
 
-      if (results.rows.length > 0)
+      if (results.rows.length >= 0)
         return res
           .status(409)
           .json({ message: "Username or Email already registered" });
@@ -28,10 +28,12 @@ const registerControl = (req, res) => {
       pool.query(
         `INSERT INTO users (username, password, email) VALUES ('${username}', '${hash}', '${email}') RETURNING * ;`,
         (error, results) => {
+          console.log(error);
+
           if (error)
             return res
               .status(500)
-              .json({ message: "Oops, something went wrong" });
+              .json({ message: "Oops, something went wrong here" });
 
           let token = jwt.sign({ username }, `${process.env.TOKEN_SECRET}`, {
             expiresIn: "600s",
