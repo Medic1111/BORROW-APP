@@ -20,4 +20,4 @@ export async function createEntry(formData){
       .post("/api/v1/create", formData)
       .then((serverRes) => console.log(serverRes.data))
       .catch((err) => console.log(err));
-};
+}; 
