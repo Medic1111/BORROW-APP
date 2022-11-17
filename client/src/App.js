@@ -1,25 +1,20 @@
-import axios from "axios";
 import { useEffect } from "react";
+import { BrowserRouter } from "react-router-dom"
+import Layout from "./Layout/Layout"
+
+// import { fetchApiTest } from "./utils/api";
 
 function App() {
-  // CONNECTION TO API
-  // IT IS PROXY: FIND WITH /route
 
-  const fetchApiTest = async () => {
-    await axios
-      .get("/api/v1/test")
-      .then((serverRes) => console.log(serverRes.data))
-      .catch((err) => console.log(err));
-  };
 
   useEffect(() => {
-    fetchApiTest();
+    // fetchApiTest()
   }, []);
 
   return (
-    <div className="App">
-      <h1>Borrow App</h1>
-    </div>
+    <BrowserRouter>
+        <Layout/>
+    </BrowserRouter>
   );
 }
 
