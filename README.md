@@ -19,5 +19,6 @@
 - psql postgres -U postgres
 
 ### DATABASE SETUP SCRIPT (do every time re-setting database - from project directory)
+
 - cd server/database
 - sh create.sh

@@ -5,3 +5,22 @@ GET http://localhost:3002/api/v1/test
 
 ###
 GET http://localhost:3002/api/v1/users
+
+#
+
+###
+
+GET http://localhost:3002/api/v1/testing/db
+
+#
+
+###
+
+POST http://localhost:3002/api/v1/register HTTP/1.1
+Content-Type: application/json
+
+{
+  "email": "2@aol.com",
+  "username": "user2",
+  "password": "password"
+}
