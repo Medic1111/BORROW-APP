@@ -1,7 +1,23 @@
 GET http://localhost:3002/api/v1/test
 
-
-#
-
 ###
-GET http://localhost:3002/api/v1/users
+
+POST http://localhost:3002/api/v1/register HTTP/1.1
+Content-Type: application/json
+
+{
+  "email": "medic222@medic.com",
+  "username": "medic222111",
+  "password": "111111"
+}
+
+### 
+
+POST http://localhost:3002/api/v1/login HTTP/1.1
+Content-Type: application/json
+
+{
+  "email": "medic@medic.com",
+  "username": "medic111111",
+  "password": "111111"
+}
