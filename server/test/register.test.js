@@ -101,7 +101,7 @@ describe("Testing routes and responses for REGISTER", () => {
         expect(serverRes.body).toBeDefined();
         expect(serverRes.body).toEqual(expect.any(Object));
         expect(serverRes.body).toEqual(
-          expect.objectContaining({ user: expect.any(Object) })
+          expect.objectContaining({ user: expect.any(String) })
         );
         expect(serverRes.body).toEqual(
           expect.objectContaining({ token: expect.any(String) })
