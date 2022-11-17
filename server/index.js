@@ -114,6 +114,22 @@ app.post("/api/v1/login", (req, res) => {
   );
 });
 
+app.get("/api/v1/validate", (req, res) => {
+  let token = req.headers.authorization;
+
+  if (!token) {
+    res.status(401).json({ message: "No token found" });
+  } else {
+    jwt.verify(token, `${process.env.TOKEN_SECRET}`, (err, verified) => {
+      if (err) {
+        return res
+          .status(401)
+          .json({ message: "Not Auth....Invalid or Expired Token" });
+      }
+    });
+  }
+});
+
 // UNIVERSAL ROUTE
 
 app.get("*", (req, res) => {
