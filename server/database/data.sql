@@ -1,9 +1,11 @@
 BEGIN TRANSACTION;
 
-INSERT INTO users (user_id, username, password, email) VALUES (1,'bob', 'bob123', 'bob@gmail.com');
-INSERT INTO users (user_id, username, password, email) VALUES (2, 'jim', 'jim123', 'jim@gmail.com');
-INSERT INTO users (user_id, username, password, email) VALUES (3, 'sally', 'sally123', 'sally@gmail.com');
-INSERT INTO users (user_id, username, password, email) VALUES (4, 'jane', 'jane123', 'jane@gmail.com');
+-- password decrypted is 111111
+
+INSERT INTO users (user_id, username, password, email) VALUES (1,'bob', '$2b$10$o3rU6TRcDiWVckz67kSCZ.B5RHHiHXefmFR5fYmvcKLxtBUJY20ru', 'bob@gmail.com');
+INSERT INTO users (user_id, username, password, email) VALUES (2, 'jim', '$2b$10$o3rU6TRcDiWVckz67kSCZ.B5RHHiHXefmFR5fYmvcKLxtBUJY20ru', 'jim@gmail.com');
+INSERT INTO users (user_id, username, password, email) VALUES (3, 'sally', '$2b$10$o3rU6TRcDiWVckz67kSCZ.B5RHHiHXefmFR5fYmvcKLxtBUJY20ru', 'sally@gmail.com');
+INSERT INTO users (user_id, username, password, email) VALUES (4, 'jane', '$2b$10$o3rU6TRcDiWVckz67kSCZ.B5RHHiHXefmFR5fYmvcKLxtBUJY20ru', 'jane@gmail.com');
 
 INSERT INTO loans (loan_id, lender_id, borrower_id, status, creation_date, due_date, amount, description)
     VALUES (1, 1, 2, 'pending', '2022-11-16', '2023-03-17', 2200.00, 'funds for new personal computer');
