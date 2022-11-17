@@ -9,7 +9,7 @@ require("dotenv").config();
 const app = express();
 const bodyParser = require("body-parser");
 const db = require("./database/queries");
-const { pool } = require("./database/queries");
+const {pool} = require("./database/queries");
 
 // MIDDLEWARES
 app.use(morgan("dev"));
@@ -55,24 +55,36 @@ app.post("/api/v1/register", (req, res) => {
   }
 
   // FIND THAT USER
-
+  let user = {}
   pool.query(
-    `SELECT * FROM users WHERE username = ${username} OR email = ${email}`,
-    (error, results) => {
-      console.log(results);
+    `SELECT * FROM users WHERE username = '${username}'`, (error, results) => {
       if (error) {
-        console.log(error);
-        return res.json({ message: "Not found" });
+        throw error;
       }
+      console.log(results);
+      user = results.rows; 
+      return res
+        .status(200)
+        .json(user)
+    }
+  )
+  console.log(user);
+ 
+  // pool.query(
+  //   `SELECT * FROM users WHERE username = ${username} OR email = ${email}`,
+  //   (error, results) => {
+  //     console.log(results);
+  //     if (error) {
+  //       console.log(error);
+  //       return res.json({ message: "Not found" });
+  //     }
       // if (results.length > 0) {
       //   console.log("user found");
       // } else {
       //   console.log("user not found");
       // }
-    }
-  );
   pool.query(
-    `INSERT INTO users (user_id, username, password, email) VALUES (${user_id}, ${username}, ${password}, ${email}`,
+    `INSERT INTO users (username, password, email) VALUES ('${username}', '${password}', '${email}')`,
     (error, results) => {
       console.log(results);
       if (error) {
@@ -81,7 +93,7 @@ app.post("/api/v1/register", (req, res) => {
       }
     }
   );
-
+  });
   // Example.findOne(
   //   { $or: [{ username: username }, { email: email }] },
   //   (err, doc) => {
@@ -122,7 +134,7 @@ app.post("/api/v1/register", (req, res) => {
   //     });
   //   }
   // );
-});
+// });
 
 app.post("/api/v1/login", (req, res) => {
   const { email, username, password } = req.body.user;
@@ -134,7 +146,7 @@ app.post("/api/v1/login", (req, res) => {
       .json({ message: "Password must contain at least 6 characters" });
   }
   pool.query(
-    `SELECT * FROM users WHERE username = ${username}`,
+    `SELECT * FROM users WHERE username = '${username}'`,
     (error, results) => {
       console.log(results);
       // Example.findOne({ username: username }, (err, doc) => {

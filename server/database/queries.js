@@ -1,9 +1,9 @@
 const Pool = require("pg").Pool;
 const pool = new Pool({
-  user: "payback_appuser",
+  user: "postgres",
   host: "localhost",
   database: "payback_app",
-  password: "password",
+  password: "postgres1",
   port: 5432,
 });
 const getUsers = (request, response) => {
