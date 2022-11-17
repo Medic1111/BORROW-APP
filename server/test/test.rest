@@ -17,7 +17,6 @@ POST http://localhost:3002/api/v1/login HTTP/1.1
 Content-Type: application/json
 
 {
-  "email": "medic@medic.com",
-  "username": "medic111111",
-  "password": "111111"
+  "username": "bob",
+  "password": "bob123"
 }

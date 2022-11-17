@@ -30,7 +30,7 @@ const loginControl = (req, res) => {
           expiresIn: "600s",
         });
 
-        res.status(201).json({
+        res.status(200).json({
           user: results.rows[0],
           token,
         });
