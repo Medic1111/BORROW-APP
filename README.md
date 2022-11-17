@@ -1,5 +1,6 @@
 ### Instructions
 
+- Create .env file and add: `TOKEN_SECRET=anySecretStringWithoutQuotes`
 - Clone it
 - npm install
 - cd client
