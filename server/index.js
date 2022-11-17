@@ -28,6 +28,25 @@ app.get("/api/v1/test", (req, res) => {
   res.json({ message: "Hello from API" });
 });
 
+app.get("/api/v1/search/:user", (req, res) => {
+  const username = req.params.user;
+
+  pool.query(
+    `SELECT * FROM users WHERE username = '${username}'`,
+    (error, results) => {
+      if (error)
+        return res.status(500).json({ message: "Oops, something went wrong" });
+
+      if (results.rows.length <= 0)
+        return res.status(404).json({ message: "User not registered" });
+
+      res.status(200).json({
+        user: results.rows[0],
+      });
+    }
+  );
+});
+
 // UNIVERSAL ROUTE
 
 app.get("*", (req, res) => {
