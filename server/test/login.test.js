@@ -5,8 +5,8 @@ let testUser = "medic222111";
 let testPass = "111111";
 
 describe("Testing the Login route possible instances", () => {
-  test("Its successful for registered users with correct credentials", async () => {
-    const data = { username: testUser, password: testPass };
+  test.only("Its successful for registered users with correct credentials", async () => {
+    const data = { username: "jim", password: "111111" };
     await request(app)
       .post("/api/v1/login")
       .send(data)
@@ -22,7 +22,10 @@ describe("Testing the Login route possible instances", () => {
           expect.objectContaining({ token: expect.any(String) })
         );
         expect(serverRes.body).toEqual(
-          expect.objectContaining({ user: expect.any(Object) })
+          expect.objectContaining({ user: expect.any(String) })
+        );
+        expect(serverRes.body).toEqual(
+          expect.objectContaining({ loans: expect.any(Array) })
         );
       })
       .catch((err) => console.log(err));
@@ -69,8 +72,8 @@ describe("Testing the Login route possible instances", () => {
       .catch((err) => console.log(err));
   });
 
-  test.only("Attempt to login with wrong credentials", async () => {
-    let data = { username: "medic222111", password: "112332" };
+  test("Attempt to login with wrong credentials", async () => {
+    let data = { username: "jim", password: "114758" };
 
     await request(app)
       .post("/api/v1/login")
