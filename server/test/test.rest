@@ -20,9 +20,9 @@ POST http://localhost:3002/api/v1/register HTTP/1.1
 Content-Type: application/json
 
 {
-  "email": "9@aol.com",
-  "username": "user9",
-  "password": "password"
+  "email": "medic@medic.com",
+  "username": "medic111111",
+  "password": "111111"
 }
 
 ### 
@@ -31,7 +31,7 @@ POST http://localhost:3002/api/v1/login HTTP/1.1
 Content-Type: application/json
 
 {
-  "email": "9@aol.com",
-  "username": "user9",
-  "password": "password"
+  "email": "med@medic.com",
+  "username": "mic111111",
+  "password": "111111"
 }

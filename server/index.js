@@ -48,7 +48,7 @@ app.post("/api/v1/register", (req, res) => {
       } else {
         const hash = bcrypt.hashSync(password, 10);
         pool.query(
-          `INSERT INTO users (username, password, email) VALUES ('${username}', '${hash}', '${email}')`,
+          `INSERT INTO users (username, password, email) VALUES ('${username}', '${hash}', '${email}') RETURNING * ;`,
           (error, results) => {
             console.log(error);
             if (error) {
@@ -59,9 +59,8 @@ app.post("/api/v1/register", (req, res) => {
               expiresIn: "600s",
             });
 
-            console.log(results);
             res.status(201).json({
-              username: results,
+              username: results.rows[0],
               token,
             });
           }
@@ -83,15 +82,17 @@ app.post("/api/v1/login", (req, res) => {
   pool.query(
     `SELECT * FROM users WHERE username = '${username}'`,
     (error, results) => {
+      console.log(results);
       if (error) {
+        console.log(error);
         return res.status(500).json({ message: "Oops, something went wrong" });
       }
-      if (!results) {
-        return res.status(404).json({ message: "Username not registered" });
+      if (results.rows.length <= 0) {
+        return res.status(404).json({ message: "User not registered" });
       }
-      console.log(results.rows);
+      console.log(results.rows[0]);
 
-      bcrypt.compare(password, results.password, (err, match) => {
+      bcrypt.compare(password, results.rows[0].password, (err, match) => {
         if (err) {
           return res
             .status(500)
@@ -106,7 +107,7 @@ app.post("/api/v1/login", (req, res) => {
         });
 
         res.status(201).json({
-          username: results.username,
+          user: results.rows[0],
           token,
         });
       });
