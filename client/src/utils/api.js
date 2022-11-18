@@ -35,5 +35,4 @@ export async function register(formData){
   .then((serverRes) => console.log(serverRes.data))
   .catch((err)=> console.log(err));
 }
-};
 
