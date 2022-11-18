@@ -17,8 +17,8 @@ POST http://localhost:3002/api/v1/login HTTP/1.1
 Content-Type: application/json
 
 {
-  "email": "jim@gmail.com",
-  "username": "jim",
+  "email": "Evelynn_Bullock1908@infotech44.tech",
+  "username": "espinalhe1",
   "password": "111111"
 }
 
