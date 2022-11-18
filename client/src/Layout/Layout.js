@@ -9,6 +9,7 @@ import CreateEntry from "./CreateEntry";
 import UserAccount from "./UserAccount";
 // import Search
 import "../styles/layout.css";
+import Nav from "./Nav";
 
 export default function Layout(){
     const [isAuth, setIsAuth] = useState(false);
@@ -41,6 +42,7 @@ export default function Layout(){
     
     return (
         <main>
+
         <Routes>
             <Route path="/" element={<Welcome/>}/>
             <Route path="/login" element={
@@ -71,6 +73,8 @@ export default function Layout(){
             {/* <Route path="/search"/> element={<Search/>}*/}
             {/* <Route element={<NotFound/>}/> */}
         </Routes>
+        <Nav/>
         </main>
+
     )
 };

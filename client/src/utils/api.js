@@ -26,16 +26,14 @@ export async function logIn(formData){
 
 export async function register(formData){
   return await axios
-    .post('api/v1/register', formData)
-    .then((serverRes) => serverRes.data)
-    .catch((err)=> {
-      throw new Error(err.response.data.message)
-    });
-};
+  .post('api/v1/register', formData)
+  .then((serverRes) => console.log(serverRes.data))
+  .catch((err)=> console.log(err));
+}
 
-export async function fetchApiTest(){
-  return await axios
-    .get("/api/v1/test")
-    .then((serverRes) => console.log(serverRes.data))
-    .catch((err) => console.log(err));
+export async function getUserByUsername(){
+    return await axios
+      .get("/api/v1/search")
+      .then((serverRes) => console.log(serverRes.data))
+      .catch((err) => console.log(err));
 };
