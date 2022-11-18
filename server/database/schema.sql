@@ -26,9 +26,9 @@ CREATE TABLE loans (
     description varchar(250),
     payment_date date,
     transaction_rating int,
-    CONSTRAINT pk_loans PRIMARY KEY (loan_id),
-    CONSTRAINT fk_loans_lender FOREIGN KEY (lender) REFERENCES users (username),
-    CONSTRAINT fk_loans_borrower FOREIGN KEY (borrower) REFERENCES users (username)
+    CONSTRAINT pk_loans PRIMARY KEY (loan_id)
+    -- CONSTRAINT fk_loans_lender FOREIGN KEY (lender) REFERENCES users (username),
+    -- CONSTRAINT fk_loans_borrower FOREIGN KEY (borrower) REFERENCES users (username)
 );
 
 COMMIT TRANSACTION;
