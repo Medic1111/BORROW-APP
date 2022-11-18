@@ -1,8 +1,8 @@
 const request = require("supertest");
 const app = require("../index");
 jest.setTimeout(20000);
-let testUser = "medic1111";
-let testPass = "111111";
+let testUser = "yeyoteef";
+let testPass = "password";
 
 describe("Testing the Login route possible instances", () => {
   test("Its successful for registered users with correct credentials", async () => {
