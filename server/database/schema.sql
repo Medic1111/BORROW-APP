@@ -4,17 +4,21 @@ DROP TABLE IF EXISTS users CASCADE;
 DROP TABLE IF EXISTS loans CASCADE;
 
 CREATE TABLE users (
-	user_id SERIAL,
     username varchar(50) UNIQUE NOT NULL,
     password varchar(200),
-    email varchar(25) UNIQUE,
-    CONSTRAINT pk_users PRIMARY KEY (user_id)
+    phone bigint,
+    email varchar(50) UNIQUE,
+    reputation numeric(19,2),
+    total_borrowing int,
+    total_lending int,
+    total_score int,
+    CONSTRAINT pk_users PRIMARY KEY (username)
 );
 
 CREATE TABLE loans (
     loan_id SERIAL,
-    lender_id int,
-    borrower_id int,
+    lender varchar(50),
+    borrower varchar(50),
     status varchar(10),
     creation_date date,
     due_date date,
@@ -23,8 +27,8 @@ CREATE TABLE loans (
     payment_date date,
     transaction_rating int,
     CONSTRAINT pk_loans PRIMARY KEY (loan_id),
-    CONSTRAINT fk_loans_lender FOREIGN KEY (lender_id) REFERENCES users (user_id),
-    CONSTRAINT fk_loans_borrower FOREIGN KEY (borrower_id) REFERENCES users (user_id)
+    CONSTRAINT fk_loans_lender FOREIGN KEY (lender) REFERENCES users (username),
+    CONSTRAINT fk_loans_borrower FOREIGN KEY (borrower) REFERENCES users (username)
 );
 
 COMMIT TRANSACTION;
