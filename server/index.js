@@ -30,10 +30,12 @@ app.get("/api/v1/test", (req, res) => {
 
 app.get("/api/v1/search/:user", (req, res) => {
   const username = req.params.user;
+  console.log(username)
 
   pool.query(
     `SELECT * FROM users WHERE username = '${username}'`,
     (error, results) => {
+      console.log(results)
       if (error)
         return res.status(500).json({ message: "Oops, something went wrong" });
 

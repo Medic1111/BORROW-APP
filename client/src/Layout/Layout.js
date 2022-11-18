@@ -7,7 +7,7 @@ import LogIn from "./LogIn";
 import Register from "./Register";
 import CreateEntry from "./CreateEntry";
 import UserAccount from "./UserAccount";
-// import Search
+import Search from "./Search";
 import "../styles/layout.css";
 import Nav from "./Nav";
 
@@ -68,12 +68,14 @@ export default function Layout(){
                 <ProtectedRoute isAuth={isAuth} token={token}>
                     <UserAccount user={user}/>
                 </ProtectedRoute>}/>
+            <Route path="/search" element={
+                <Search/>
+            }/>
 
             {/* LaToya is creating these ...*/}
             {/* <Route path="/search"/> element={<Search/>}*/}
             {/* <Route element={<NotFound/>}/> */}
         </Routes>
-        <Nav/>
         </main>
 
     )

@@ -1,6 +1,13 @@
 import React, { useState } from "react";
 import {useNavigate} from "react-router-dom";
-//need to set pictures as hover, and import
+import accountActive from "../styles/images/account-hover.png";
+import accountInactive from "../styles/images/account-inactive.png";
+import homeActive from "../styles/images/borrow-hover.png";
+import homeInactive from "../styles/images/borrow-inactive.png";
+import searchActive from "../styles/images/search-hover.png";
+import searchInactive from "../styles/images/search-inactive.png";
+import "../styles/nav.css";
+
 
 function Nav() {
     const navigate = useNavigate();
@@ -13,7 +20,7 @@ function Nav() {
     return (
 
 //need to set pictures as hover, and import
-<div id="button-container">
+<div id="Nav">
     <img 
     src={accountHover ? accountActive : accountInactive} alt="account button" 
     className="btn"

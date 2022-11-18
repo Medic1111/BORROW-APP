@@ -1,0 +1,13 @@
+#Nav {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    right: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+#Nav img{
+    width: 30px;
+    margin: 10px;
+}

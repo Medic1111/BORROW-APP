@@ -1,6 +1,7 @@
 import React, {useState} from "react";
-import Users from "./Users";
+// import Users from "./Users";
 import { getUserByUsername } from "../utils/api";
+import Nav from "./Nav";
 
 //axios calls
 //import the function that will list all of the users info, How to call getUserByUsername for now
@@ -9,26 +10,25 @@ import { getUserByUsername } from "../utils/api";
 //import ErrorAlerts
 
 function Search({user}) {
-    const userName = {username: ""};
-    const [usersName, setUsersName] = useState({...userName});
+    // const userName = {username: ""};
+    const [usernameSearch, setUsernameSearch] = useState("");
     
     const [searchUser, setSearchUser] = useState([])
     const [userError, setUsersError] = useState(null);
 
     function loadSearch(event) {
-        event.preventDefault();
+      event.preventDefault();
         const abortController = new AbortController();
         setUsersError(null);
-        getUserByUsername(userName, abortController.signal)
+        getUserByUsername(usernameSearch, abortController.signal)
         .then(setSearchUser)
         .catch(setUsersError);
 
         return () => abortController.abort();
-
     }
 
     const changeHandler = (event) => { 
-        setUsersName({...usersName, [event.target.name] : event.target.value});
+        setUsernameSearch(event.target.value);
     };
 
     // const usersList = users.map((user) => (<Users key={user.user_id} user={user}/>));
@@ -42,7 +42,7 @@ function Search({user}) {
           <input
             placeholder="Search Username"
             onChange={changeHandler}
-            value={user.username}
+            value={usernameSearch}
             required
             name="username"
           />
@@ -72,6 +72,7 @@ function Search({user}) {
           )}
         </tbody>
       </table>
+      <Nav/>
     </div>
   );
 
