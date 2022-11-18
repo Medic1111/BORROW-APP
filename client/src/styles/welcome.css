@@ -1,0 +1,30 @@
+#Welcome{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#Welcome h1{
+    font-size: calc(60px + 5vw);
+    margin-bottom: 20px;
+}
+
+#Welcome h2{
+    font-size: calc(25px + 1vw);
+}
+
+#Welcome #dolladude{
+    width: calc(100px + 15vw);
+}
+
+#Welcome #button-container{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+#Welcome #button-container img{
+    width: calc(100px + 15vw);
+    margin: 10px;
+}

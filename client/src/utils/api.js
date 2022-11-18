@@ -20,4 +20,19 @@ export async function createEntry(formData){
       .post("/api/v1/create", formData)
       .then((serverRes) => console.log(serverRes.data))
       .catch((err) => console.log(err));
-}; 
+
+};
+export async function logIn(formData){
+  return await axios
+    .post("/api/v1/login", formData)
+    .then((serverRes) => console.log(serverRes.data))
+    .catch((err) => console.log(err));
+};
+
+export async function register(formData){
+  return await axios
+  .post('api/v1/register', formData)
+  .then((serverRes) => console.log(serverRes.data))
+  .catch((err)=> console.log(err));
+}
+
