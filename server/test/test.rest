@@ -8,7 +8,7 @@ Content-Type: application/json
 {
   "email": "medic@medic.com",
   "username": "medic1111",
-  "password": "111111"
+  "password": "password"
 }
 
 ### 
@@ -17,8 +17,8 @@ POST http://localhost:3002/api/v1/login HTTP/1.1
 Content-Type: application/json
 
 {
-  "username": "medic1111",
-  "password": "111111"
+  "username": "yeyoteef",
+  "password": "password"
 }
 
 ### 
@@ -27,7 +27,7 @@ POST http://localhost:3002/api/v1/login HTTP/1.1
 Content-Type: application/json
 
 {
-  "username": "medic4222111",
+  "email": "med12@mic.com",
+  "username": "medi1nonon1",
   "password": "111111"
-  
 }
