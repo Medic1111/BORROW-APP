@@ -30,6 +30,8 @@ export default function LogIn({ setIsAuth, setToken, setUser, setLoans }){
                 setToken(token);
                 setUser(user);
                 setLoans(loans);
+                
+            // store token in local storage with expiration date 
                 const myExp = new Date(new Date().getTime() + 161 * 60 * 60);
                     localStorage.setItem(
                         "userValidation",
