@@ -28,7 +28,7 @@ POST http://localhost:3002/api/v1/login HTTP/1.1
 Content-Type: application/json
 
 {
-  "username": "medic4222111",
+  "email": "med12@mic.com",
+  "username": "medi1nonon1",
   "password": "111111"
-  
 }
