@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import {useHistory} from "react-router-dom";
+import { getUsers } from "../../../server/database/queries";
+import Nav from "./Nav"
 //importing the axios call to get all users, calling listUserInfo for now
 //import ErrorAlert
 
@@ -13,7 +15,7 @@ function Users(){
     useEffect(() => {
         const abortController = new AbortController();
         setUserError(null);
-        listUserInfo(abortController.signal)
+        getUsers(abortController.signal)
         .then(setUser)
         .catch(setUserError);
         return () => abortController.abort();
@@ -48,10 +50,12 @@ return (
               Borrow From
             </a>
           </div> 
-            
           }
+          
         </td>
+        <div><Nav/></div>
       </tr>
+      
     </>
 )
 

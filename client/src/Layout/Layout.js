@@ -7,6 +7,7 @@ import LogIn from "./LogIn";
 import Register from "./Register";
 import CreateEntry from "./CreateEntry";
 import "../styles/layout.css";
+import Nav from "./Nav";
 
 export default function Layout(){
     const [isAuth, setIsAuth] = useState(false);
@@ -17,6 +18,7 @@ export default function Layout(){
     
     return (
         <main>
+
         <Routes>
             <Route path="/" element={<Welcome/>}/>
             <Route path="/login" element={<LogIn setIsAuth={setIsAuth}/>}/>
@@ -24,7 +26,10 @@ export default function Layout(){
             <Route path="/dashboard" element={<ProtectedRoute isAuth={isAuth}><Dashboard/></ProtectedRoute>}/>
             <Route path="/create" element={<ProtectedRoute isAuth={isAuth}><CreateEntry/></ProtectedRoute>}/>
             {/* a history page ? */}
+           
         </Routes>
+        <Nav/>
         </main>
+
     )
 };

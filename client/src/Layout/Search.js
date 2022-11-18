@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import Users from "./Users";
+import { getUserByUsername } from "../utils/api";
 
 //axios calls
 //import the function that will list all of the users info, How to call getUserByUsername for now
@@ -7,7 +8,7 @@ import Users from "./Users";
 //errors
 //import ErrorAlerts
 
-function Search() {
+function Search({user}) {
     const userName = {username: ""};
     const [usersName, setUsersName] = useState({...userName});
     

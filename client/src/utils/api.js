@@ -36,3 +36,9 @@ export async function register(formData){
   .catch((err)=> console.log(err));
 }
 
+export async function getUserByUsername(){
+    return await axios
+      .get("/api/v1/search")
+      .then((serverRes) => console.log(serverRes.data))
+      .catch((err) => console.log(err));
+};
