@@ -6,6 +6,7 @@ import Dashboard from "./Dashboard";
 import LogIn from "./LogIn";
 import Register from "./Register";
 import CreateEntry from "./CreateEntry";
+import "../styles/layout.css";
 
 export default function Layout(){
     const [isAuth, setIsAuth] = useState(false);
@@ -15,6 +16,7 @@ export default function Layout(){
     // send state for 'setToken' to log in and register
     
     return (
+        <main>
         <Routes>
             <Route path="/" element={<Welcome/>}/>
             <Route path="/login" element={<LogIn setIsAuth={setIsAuth}/>}/>
@@ -23,5 +25,6 @@ export default function Layout(){
             <Route path="/create" element={<ProtectedRoute isAuth={isAuth}><CreateEntry/></ProtectedRoute>}/>
             {/* a history page ? */}
         </Routes>
+        </main>
     )
 };

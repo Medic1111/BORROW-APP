@@ -61,9 +61,9 @@ describe("Testing routes and responses for REGISTER", () => {
 
   test("Already registered user attempts to re-register", async () => {
     let data = {
-      username: "bob",
-      password: "newUserTet",
-      email: "newUserTest@newUsrst.com",
+      username: "espinalhe1",
+      password: "$2b$10$o3rU6TRcDiWVckz67kSCZ.B5RHHiHXefmFR5fYmvcKLxtBUJY20ru",
+      email: "Evelynn_Bullock1908@infotech44.tech",
     };
 
     await request(app)
@@ -72,6 +72,7 @@ describe("Testing routes and responses for REGISTER", () => {
       .expect(409)
       .expect("Content-Type", /json/)
       .then((serverRes) => {
+        console.log(serverRes.body);
         expect(serverRes.body).toBeDefined();
         expect(serverRes.body).toEqual(expect.any(Object));
         expect(serverRes.body).toEqual(
