@@ -1,12 +1,12 @@
 const request = require("supertest");
 const app = require("../index");
 jest.setTimeout(20000);
-let testUser = "medic222111";
+let testUser = "medic1111";
 let testPass = "111111";
 
 describe("Testing the Login route possible instances", () => {
-  test.only("Its successful for registered users with correct credentials", async () => {
-    const data = { username: "jim", password: "111111" };
+  test("Its successful for registered users with correct credentials", async () => {
+    const data = { username: testUser, password: testPass };
     await request(app)
       .post("/api/v1/login")
       .send(data)
@@ -73,7 +73,7 @@ describe("Testing the Login route possible instances", () => {
   });
 
   test("Attempt to login with wrong credentials", async () => {
-    let data = { username: "jim", password: "114758" };
+    let data = { username: testUser, password: "114758" };
 
     await request(app)
       .post("/api/v1/login")
