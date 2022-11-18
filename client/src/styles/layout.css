@@ -2,9 +2,9 @@ main{
     display: flex;
     width: 100vw;
     height: 100vh;
-    /* flex-direction: column; */
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
+    /* align-items: center; */
     background-image: linear-gradient(to bottom left, #9ab85f, #9ab85f, #5F9AB8, #b85f9a);
 }
 
@@ -18,11 +18,23 @@ h2{
     font-family: 'Arista2.0';
 }
 
+p{
+    color: white;
+    font-family: 'Raleway';
+}
+
 @font-face {
     font-family: 'Arista2.0';
     src: url("./fonts/arista-2.0/Arista2.0.ttf");
     font-style: normal;
     font-weight: 100;
+}
+
+@font-face {
+    font-family: 'Raleway';
+    src: url("./fonts/raleway/Raleway-Regular.ttf");
+    font-style: normal;
+    /* font-weight: 100; */
 }
 
 @font-face {
