@@ -54,7 +54,7 @@ const loginControl = async (req, res) => {
     return res.status(200).json({
       user: user.username,
       token,
-      loans: loans || [],
+      loans: loans || []
     });
   });
 };
