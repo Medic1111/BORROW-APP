@@ -14,11 +14,11 @@ async function getUserByUsername(username) {
   return await selectFrom("*", "users", `WHERE username = '${username}'`);
 }
 
-async function getLoansByUserId(userId) {
+async function getLoansByUsername(username) {
   return await selectFrom(
     "*",
     "loans",
-    `WHERE lender_id = '${userId}' OR borrower_id = '${userId}'`
+    `WHERE lender = '${username}' OR borrower = '${username}'`
   );
 }
 
@@ -33,7 +33,7 @@ const loginControl = async (req, res) => {
 
   if (!user) return res.status(404).json({ message: "User not registered" });
 
-  results = await getLoansByUserId(user.user_id);
+  results = await getLoansByUsername(user.username);
 
   const loans = results.rows;
 
