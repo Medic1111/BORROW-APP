@@ -1,9 +1,12 @@
+
 import React, { useState } from "react";
 import { logIn } from "../utils/api";
+
 import { useNavigate } from "react-router-dom"
 
 export default function LogIn({ setIsAuth }){
     // user logs in, recieves a token
+
     const loginData = {
         email: "",
         password: ""
@@ -37,13 +40,13 @@ export default function LogIn({ setIsAuth }){
             <label htmlFor="password">Password</label>
             <input name="password" type="text" onChange={handleInputChange} value={formData.password}/>
 
-
             <button onClick={()=>{
                 setIsAuth(true)
                 navigate("/dashboard")
             }}>Log in</button>
+
             </form>
-            
+
         </div>
     )
 };

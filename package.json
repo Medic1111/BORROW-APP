@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node server/app.js",
     "dev": "nodemon server/app.js",
+    "test": "jest --watchAll --detectOpenHandles",
     "build": "cd client && npm install && npm run build"
   },
   "author": "Aryse <medictansy@gmail.com>",
@@ -16,10 +17,12 @@
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^6.7.2",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "pg": "^8.8.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.20"
+    "jest": "^29.3.1",
+    "nodemon": "^2.0.20",
+    "supertest": "^6.3.1"
   }
 }

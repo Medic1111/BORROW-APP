@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom"
 import { register } from "../utils/api";
@@ -52,6 +53,7 @@ export default function Register(setIsAuth){
 
 
             </form>
+
         </div>
     )
 };
