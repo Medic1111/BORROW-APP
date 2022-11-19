@@ -56,9 +56,9 @@ export default function Layout(){
                     setToken={setToken} 
                     setUser={setUser}/>}/>
             <Route path="/dashboard" element={
-                <ProtectedRoute isAuth={isAuth} setIsAuth={setIsAuth} token={userValidation.token}>
+               <ProtectedRoute isAuth={isAuth} setIsAuth={setIsAuth} token={userValidation.token}>
                     <Dashboard user={user} loans={loans}/>
-                </ProtectedRoute>}/>
+                 </ProtectedRoute>}/> 
             <Route path="/create" element={
                 <ProtectedRoute isAuth={isAuth} token={token}>
                     <CreateEntry/>
