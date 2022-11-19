@@ -44,4 +44,8 @@
 
 #Search #user{
     display: flex;
+    border: 1px white dashed;
+    border-radius: 20px;
+    padding: 20px;
+    margin-top: 30px;
 }

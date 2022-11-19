@@ -7,6 +7,7 @@ import axios from "axios";
 // store token in local storage with expiration date 
 // if token is expired OR invalid, redirect to login
 export async function validateToken(token){
+  console.log(token)
   return await axios
     .get("/api/v1/validate", { headers: { authorization: token }})
     .catch((err) => err)

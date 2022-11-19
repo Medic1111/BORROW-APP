@@ -58,7 +58,7 @@ export default function Layout(){
                 <ProtectedRoute isAuth={isAuth} setIsAuth={setIsAuth} token={token}>
                     <Dashboard user={user} loans={loans}/>
                 </ProtectedRoute>}/>
-            <Route path="/create" element={
+            <Route path="/create/:tradee" element={
                 <ProtectedRoute isAuth={isAuth} token={token}>
                     <CreateEntry/>
                 </ProtectedRoute>}/>
@@ -66,7 +66,7 @@ export default function Layout(){
                 <ProtectedRoute isAuth={isAuth} token={token}>
                     <UserAccount user={user}/>
                 </ProtectedRoute>}/>
-            <Route path="/search" element={<Search/>}/>
+            <Route path="/search" element={<Search user={user}/>}/>
         </Routes>
         </main>
 
