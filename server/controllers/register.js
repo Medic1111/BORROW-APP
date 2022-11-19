@@ -32,7 +32,8 @@ const registerControl = (req, res) => {
               .status(500)
               .json({ message: "Oops, something went wrong here" });
 
-          let token = jwt.sign({ username }, `${process.env.TOKEN_SECRET}`, {
+          let token;
+          token = jwt.sign({ username }, `${process.env.TOKEN_SECRET}`, {
             expiresIn: "600s",
           });
 
