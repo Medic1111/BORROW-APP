@@ -1,0 +1,52 @@
+#Login{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#Login h1{
+    font-size: calc(50px + 5vw);
+    margin-bottom: 50px;
+}
+
+#Login form{
+    display: flex;
+    flex-direction: column;
+}
+
+#Login form label{
+    display: none;
+}
+
+#Login form input{
+    padding: 12px 20px;
+    margin: 8px 0;
+    border-width: 0px;
+    font-family: 'Raleway';
+    text-align: center;
+}
+
+#Login img{
+    margin-top: 20px;
+    width: calc(100px + 15vw);
+}
+
+#Login #cancel{
+    position: relative;
+    left: 200px;
+    bottom: 100px;
+    width: calc(20px + 5vw);
+    max-width: 80px;
+}
+
+#Login button {
+    background-color: transparent;
+    border-width: 0px;
+}
+
+@font-face {
+    font-family: 'Raleway';
+    src: url("./fonts/raleway/Raleway-Regular.ttf");
+    font-style: normal;
+    /* font-weight: 100; */
+}

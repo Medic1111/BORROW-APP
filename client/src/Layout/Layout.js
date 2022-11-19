@@ -8,6 +8,7 @@ import Register from "./Register";
 import CreateEntry from "./CreateEntry";
 import "../styles/layout.css";
 import UserAccount from "./UserAccount";
+import Search from "./Search";
 
 export default function Layout(){
     const [isAuth, setIsAuth] = useState(false);
@@ -63,11 +64,11 @@ export default function Layout(){
                 <ProtectedRoute isAuth={isAuth} token={token}>
                     <CreateEntry/>
                 </ProtectedRoute>}/>
-            <Route path="/user/:username" element={
+            <Route path="/account/:username" element={
                 <ProtectedRoute isAuth={isAuth} token={token}>
                     <UserAccount user={user}/>
-                </ProtectedRoute>
-            }/>
+                </ProtectedRoute>}/>
+            <Route path="/search" element={<Search/>}/>
         </Routes>
         </main>
     )

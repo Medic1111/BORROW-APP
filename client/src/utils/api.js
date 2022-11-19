@@ -44,3 +44,12 @@ export async function register(formData){
     });
 }
 
+export async function getUserByUsername(username){
+  return await axios
+    .get(`/api/v1/search/${username}`)
+    .then((serverRes) => serverRes.data)
+    .catch((err) => {
+      throw new Error(err.response.data.message)
+    });
+};
+
