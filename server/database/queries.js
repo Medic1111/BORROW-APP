@@ -1,9 +1,9 @@
 const Pool = require("pg").Pool;
 const pool = new Pool({
-  user: "znjfdvao",
-  host: "peanut.db.elephantsql.com",
-  database: "znjfdvao",
-  password: "7nl8WuulhBMOETrjqqn30WQsnzxdFXCe",
+  user: "postgres",
+  host: "localhost",
+  database: "payback_app",
+  password: "postgres1",
   port: 5432,
 });
 
