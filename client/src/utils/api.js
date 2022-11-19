@@ -2,10 +2,6 @@ import axios from "axios";
   // CONNECTION TO API
   // IT IS PROXY: FIND WITH /route
 
-// TODO: one specific function for validating a token
-// import into each rendered page (to validate if they should or shouldn't have access to said page)
-// store token in local storage with expiration date 
-// if token is expired OR invalid, redirect to login
 export async function validateToken(token){
   console.log(token)
   return await axios
@@ -22,9 +18,11 @@ export async function fetchApiTest(){
 
 export async function createEntry(formData){
     return await axios
-      .post("/api/v1/create", formData)
-      .then((serverRes) => console.log(serverRes.data))
-      .catch((err) => console.log(err));
+      .post("/api/v1/loan", formData)
+      .then((serverRes) => serverRes.data)
+      .catch((err) => {
+        throw new Error(err.response.data.message)
+      });
 
 };
 export async function logIn(formData){

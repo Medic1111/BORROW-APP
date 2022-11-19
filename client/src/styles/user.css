@@ -1,0 +1,47 @@
+#User {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 150px;
+    height: 100%;
+    background-color: #b85f9a;
+}
+
+#User #account-pic{
+    width: 150px;
+    margin-bottom: 30px;
+}
+
+#User #settings{
+    position: relative;
+    width: 70px;
+    left: 100px;
+    bottom: 40px;
+}
+
+#User .info{
+    display: flex;
+    /* flex-direction: column; */
+    align-items: center;
+}
+
+#User .info h5{
+    margin-right: 10px;
+    font-size: 20px;
+    color: white;
+    font-family: 'Raleway-heavy';
+}
+
+#User .info p{
+    background-color: white;
+    padding: 10px 40px;
+    color: black;
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'Raleway-heavy';
+    src: url("./fonts/raleway/Raleway-Heavy.ttf");
+    font-style: normal;
+    /* font-weight: 100; */
+}

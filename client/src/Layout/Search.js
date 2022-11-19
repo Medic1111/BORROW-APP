@@ -4,8 +4,10 @@ import { getUserByUsername } from "../utils/api";
 import Nav from "./Nav";
 import submitActive from "../styles/images/submit-hover.png";
 import submitInactive from "../styles/images/submit-inactive.png";
-import borrowActive from "../styles/images/borrow-hover.png";
-import borrowInactive from "../styles/images/borrow-inactive.png"
+import borrowActive from "../styles/images/borrow-hover-1.png";
+import borrowInactive from "../styles/images/borrow-inactive-1.png";
+import lendActive from "../styles/images/lend-hover.png";
+import lendInactive from "../styles/images/lend-inactive.png";
 import "../styles/search.css"
 import { Navigate, useNavigate } from "react-router-dom";
 
@@ -15,12 +17,13 @@ import { Navigate, useNavigate } from "react-router-dom";
 //errors
 //import ErrorAlerts
 
-function Search({ user }) {
+function Search({ user, setUser }) {
     // const userName = {username: ""};
     const navigate = useNavigate();
     const [usernameSearch, setUsernameSearch] = useState("");
     const [submitHover, setSubmitHover] = useState(false);
     const [borrowHover, setBorrowHover] = useState(false);
+    const [lendHover, setLendHover] = useState(false);
     const [searchUser, setSearchUser] = useState({})
     const [searchError, setSearchError] = useState(null);
 
@@ -42,7 +45,7 @@ function Search({ user }) {
         setUsernameSearch(event.target.value);
     };
 
-    console.log(searchUser)
+    console.log(user)
 
     return (
     <div id="Search">
@@ -75,10 +78,28 @@ function Search({ user }) {
         </div>
         <img
           src={borrowHover ? borrowActive : borrowInactive}
+          className="borrow-lend"
+          onMouseOver={()=>setBorrowHover(true)}
+          onMouseLeave={()=>setBorrowHover(false)}
+          onClick={()=>{
+            setUser((prevState) => ({...prevState, isBorrower: true}))
+            navigate(`/create/${searchUser.username}`)
+            }}/>
+        <img
+          src={lendHover ? lendActive : lendInactive}
+          className="borrow-lend"
+          onMouseOver={()=>setLendHover(true)}
+          onMouseLeave={()=>setLendHover(false)}
+          onClick={()=>{
+            setUser((prevState) => ({...prevState, isBorrower: false}))
+            navigate(`/create/${searchUser.username}`)
+            }}/>
+        {/* <img
+          src={borrowHover ? borrowActive : borrowInactive}
           onMouseOver={()=>setBorrowHover(true)}
           onMouseLeave={()=>setBorrowHover(false)}
           onClick={()=>navigate(`/create/${searchUser.username}`)}
-          id="borrow-button"/>
+          id="borrow-button"/> */}
       </div>
       : null}
 

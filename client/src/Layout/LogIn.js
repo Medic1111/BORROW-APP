@@ -34,7 +34,8 @@ export default function LogIn({ setIsAuth, setToken, setUser, setLoans }){
             .then(({ user, token, loans }) => {
                 setIsAuth(true);
                 setToken(token);
-                setUser(user);
+                setUser((prevState) => ({...prevState, username: user}));
+                console.log(user)
                 setLoans(loans);
                 
             // store token in local storage with expiration date 

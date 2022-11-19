@@ -23,7 +23,7 @@ function Nav() {
     <img 
     src={accountHover ? accountActive : accountInactive} alt="account button" 
     className="btn"
-    onClick={()=> navigate("/account/:username")}
+    onClick={()=> navigate("/account")}
     onMouseOver={() => setAccountHover(true)}
     onMouseLeave={() => setAccountHover(false)}
     />
