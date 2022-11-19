@@ -2,7 +2,7 @@ const request = require("supertest");
 const app = require("../index");
 jest.setTimeout(20000);
 
-describe("Testing routes and responses for REGISTER", () => {
+describe("Testing route and response for Search", () => {
   test("Succefully finds a registered user by params", async () => {
     await request(app)
       .get("/api/v1/search/espinalhe1")
@@ -21,7 +21,7 @@ describe("Testing routes and responses for REGISTER", () => {
       .catch((err) => console.log(err));
   });
 
-  test.only("404 if user not registered", async () => {
+  test("404 if user not registered", async () => {
     await request(app)
       .get("/api/v1/search/eslhe1")
       .expect("Content-Type", /json/)
