@@ -9,7 +9,7 @@ export default function Dashboard({ token, user, loans}){
     return (
         <div id="Dashboard">
             <h1>Hello, {user}!</h1>
-            <h2>Activity</h2>
+            <h2>Money Moves</h2>
             {loans.length && loans.map((loan)=>{
                 return (
                     <div key={loan.id} className="loan">

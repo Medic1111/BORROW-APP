@@ -17,7 +17,7 @@ export default function Layout(){
     const [loans, setLoans] = useState([]);
     const userValidation = (JSON.parse(localStorage.getItem("userValidation")));
 
-    useEffect(async() => {
+    useEffect(() => {
         console.log(userValidation.token)
         console.log(isAuth);
 

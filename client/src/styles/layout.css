@@ -5,6 +5,7 @@ main{
     flex-direction: column;
     justify-content: center;
     /* align-items: center; */
+    /* background-color: #9ab85f; */
     background-image: linear-gradient(to bottom left, #9ab85f, #9ab85f, #5F9AB8, #b85f9a);
 }
 
