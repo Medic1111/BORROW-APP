@@ -1,0 +1,14 @@
+#Nav {
+    position: absolute;
+    width: 100%;
+    /* background-color: #b85f9a; */
+    padding: 10px;
+    bottom: 0px;
+    display: flex;
+    justify-content: center;
+}
+
+#Nav img{
+    width: 50px;
+    margin: 10px;
+}

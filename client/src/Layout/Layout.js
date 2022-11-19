@@ -6,8 +6,9 @@ import Dashboard from "./Dashboard";
 import LogIn from "./LogIn";
 import Register from "./Register";
 import CreateEntry from "./CreateEntry";
-import "../styles/layout.css";
 import UserAccount from "./UserAccount";
+import Search from "./Search";
+import "../styles/layout.css"
 
 export default function Layout(){
     const [isAuth, setIsAuth] = useState(false);
@@ -16,7 +17,7 @@ export default function Layout(){
     const [loans, setLoans] = useState([]);
     const userValidation = (JSON.parse(localStorage.getItem("userValidation")));
 
-    useEffect(async() => {
+    useEffect(() => {
         console.log(userValidation.token)
         console.log(isAuth);
 
@@ -35,13 +36,11 @@ export default function Layout(){
         };
         isTokenExp();
     }, []);
-    
-    // user gets a token when registering OR logging in
-    // wrapper for route protection
-    // send state for 'setToken' to log in and register
+
     
     return (
         <main>
+
         <Routes>
             <Route path="/" element={<Welcome/>}/>
             <Route path="/login" element={
@@ -56,19 +55,20 @@ export default function Layout(){
                     setToken={setToken} 
                     setUser={setUser}/>}/>
             <Route path="/dashboard" element={
-                <ProtectedRoute isAuth={isAuth} setIsAuth={setIsAuth} token={userValidation.token}>
+                <ProtectedRoute isAuth={isAuth} setIsAuth={setIsAuth} token={token}>
                     <Dashboard user={user} loans={loans}/>
                 </ProtectedRoute>}/>
-            <Route path="/create" element={
+            <Route path="/create/:tradee" element={
                 <ProtectedRoute isAuth={isAuth} token={token}>
                     <CreateEntry/>
                 </ProtectedRoute>}/>
-            <Route path="/user/:username" element={
+            <Route path="/account/:username" element={
                 <ProtectedRoute isAuth={isAuth} token={token}>
                     <UserAccount user={user}/>
-                </ProtectedRoute>
-            }/>
+                </ProtectedRoute>}/>
+            <Route path="/search" element={<Search user={user}/>}/>
         </Routes>
         </main>
+
     )
 };

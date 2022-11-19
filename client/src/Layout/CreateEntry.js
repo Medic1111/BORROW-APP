@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { createEntry } from "../utils/api";
 
 export default function CreateEntry() {
+    const { tradee } = useParams();
+
     const INIT_FORM_DATA = {
         borrower: "",
         amount: 0,
@@ -23,10 +25,11 @@ export default function CreateEntry() {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+        console.log(tradee)
         // call api to create entry
         // await createEntry(formData)
-        setFormData(INIT_FORM_DATA);
-        navigate("/")
+        // setFormData(INIT_FORM_DATA);
+        // navigate("/")
     };
 
     return (
@@ -54,10 +57,7 @@ export default function CreateEntry() {
                 value={formData.phone}
             />
             <button type="submit">Submit</button>
-            <button
-                onClick={()=>{
-                    navigate("/dashboard")
-                }}>Cancel</button>
+            <button>Cancel</button>
         </form>
     );
 }

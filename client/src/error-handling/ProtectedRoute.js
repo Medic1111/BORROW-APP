@@ -15,9 +15,9 @@ const ProtectedRoute = ({ children, setIsAuth, isAuth, token }) => {
       })
   }, [])
 
-  if (!isAuth) {
-    return <Navigate to={"/login"} replace />;
-  }
+  // if (!isAuth) {
+  //   return <Navigate to={"/login"} replace />;
+  // }
 
   return children;
 };

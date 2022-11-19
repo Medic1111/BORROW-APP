@@ -1,0 +1,51 @@
+#Search{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    /* margin-top: 300px; */
+    background-color: #9ab85f;
+}
+
+#Search h1{
+    font-size: calc(20px + 5vw);
+    margin-top: 300px;
+    margin-bottom: 80px;
+}
+
+#Search form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#Search form input{
+    padding: 20px 40px;
+    margin: 8px 0;
+    border-width: 0px;
+    font-family: 'Raleway';
+    text-align: center;
+}
+
+#Search #submit{
+    margin-top: 20px;
+    width: calc(80px + 10vw);
+}
+
+#Search button {
+    background-color: transparent;
+    border-width: 0px;
+}
+
+#Search #borrow-button{
+    width: 60px;
+    margin-left: 20px;
+}
+
+#Search #user{
+    display: flex;
+    border: 1px white dashed;
+    border-radius: 20px;
+    padding: 20px;
+    margin-top: 30px;
+}
