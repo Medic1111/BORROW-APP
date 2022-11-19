@@ -33,11 +33,12 @@ export default function Register({ setIsAuth, setToken, setUser }){
             setFormErr("passwords to not match")
         }else{
             await register(formData)
-                .then(({ user, token, expiration }) =>{
-                    // use state or context to set the user and the token
+                .then(({ user, token }) =>{
                     setIsAuth(true);
                     setToken(token);
                     setUser(user);
+
+                // store token in local storage with expiration date 
                     const myExp = new Date(new Date().getTime() + 161 * 60 * 60);
                     localStorage.setItem(
                         "userValidation",

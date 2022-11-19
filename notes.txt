@@ -1,0 +1,11 @@
+clone project directly from group repo we want to pull from
+
+git fetch origin development
+
+git checkout development
+
+git branch --remote : shows all the branches on the remote repo
+
+git branch -a : lists local and remote branches
+
+

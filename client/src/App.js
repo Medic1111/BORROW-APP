@@ -6,11 +6,6 @@ import Layout from "./Layout/Layout"
 
 function App() {
 
-
-  useEffect(() => {
-    // fetchApiTest()
-  }, []);
-
   return (
     <BrowserRouter>
         <Layout/>

@@ -6,7 +6,6 @@ import Dashboard from "./Dashboard";
 import LogIn from "./LogIn";
 import Register from "./Register";
 import CreateEntry from "./CreateEntry";
-import "../styles/layout.css";
 import UserAccount from "./UserAccount";
 import Search from "./Search";
 
@@ -17,10 +16,12 @@ export default function Layout(){
     const [loans, setLoans] = useState([]);
     const userValidation = (JSON.parse(localStorage.getItem("userValidation")));
 
-    useEffect(async() => {
+    useEffect(() => {
         console.log(userValidation.token)
         console.log(isAuth);
 
+    // user gets a token when registering OR logging in
+    // checks if token is expired
         const isTokenExp = () => {
           const storedData = localStorage.getItem("userValidation");
       
@@ -37,12 +38,9 @@ export default function Layout(){
         isTokenExp();
     }, []);
     
-    // user gets a token when registering OR logging in
-    // wrapper for route protection
-    // send state for 'setToken' to log in and register
-    
     return (
         <main>
+
         <Routes>
             <Route path="/" element={<Welcome/>}/>
             <Route path="/login" element={
@@ -57,7 +55,7 @@ export default function Layout(){
                     setToken={setToken} 
                     setUser={setUser}/>}/>
             <Route path="/dashboard" element={
-                <ProtectedRoute isAuth={isAuth} setIsAuth={setIsAuth} token={userValidation.token}>
+                <ProtectedRoute isAuth={isAuth} setIsAuth={setIsAuth} token={token}>
                     <Dashboard user={user} loans={loans}/>
                 </ProtectedRoute>}/>
             <Route path="/create" element={
@@ -71,5 +69,6 @@ export default function Layout(){
             <Route path="/search" element={<Search/>}/>
         </Routes>
         </main>
+
     )
 };
