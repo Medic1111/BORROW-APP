@@ -1,7 +1,7 @@
 #Nav {
     position: absolute;
     width: 100%;
-    /* background-color: #b85f9a; */
+    background-color: #00000040;
     padding: 10px;
     bottom: 0px;
     display: flex;

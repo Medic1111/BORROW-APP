@@ -37,6 +37,12 @@
     border-width: 0px;
 }
 
+#Search .borrow-lend{
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+}
+
 #Search #borrow-button{
     width: 60px;
     margin-left: 20px;

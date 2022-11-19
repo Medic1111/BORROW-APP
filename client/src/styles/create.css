@@ -1,0 +1,44 @@
+#Create {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    /* align-items: center; */
+    width: 60%;
+}
+
+#Create #cancel-create{
+    align-self: flex-end;
+    position: relative;
+    bottom: 30px;
+    width: 30px;
+}
+
+#Create #submit-create{
+    margin-top: 40px;
+    width: calc(100px + 15vw);
+}
+
+#Create  button {
+    background-color: transparent;
+    border-width: 0px;
+}
+
+#Create input {
+    padding: 12px 20px;
+    margin: 8px 0;
+    border-width: 0px;
+    font-family: 'Raleway';
+    text-align: center;
+}
+
+#Create label {
+    color: white;
+    font-family: 'Raleway';
+}
+
+@font-face {
+    font-family: 'Raleway';
+    src: url("./fonts/raleway/Raleway-Regular.ttf");
+    font-style: normal;
+    /* font-weight: 100; */
+}

@@ -13,7 +13,7 @@ import "../styles/layout.css"
 export default function Layout(){
     const [isAuth, setIsAuth] = useState(false);
     const [token, setToken] = useState("");
-    const [user, setUser] = useState(null);
+    const [user, setUser] = useState({ username: "" })
     const [loans, setLoans] = useState([]);
     const userValidation = (JSON.parse(localStorage.getItem("userValidation")));
 
@@ -60,13 +60,14 @@ export default function Layout(){
                 </ProtectedRoute>}/>
             <Route path="/create/:tradee" element={
                 <ProtectedRoute isAuth={isAuth} token={token}>
-                    <CreateEntry/>
+                    <CreateEntry user={user} setLoans={setLoans}/>
                 </ProtectedRoute>}/>
-            <Route path="/account/:username" element={
+            <Route path="/account" element={
                 <ProtectedRoute isAuth={isAuth} token={token}>
                     <UserAccount user={user}/>
                 </ProtectedRoute>}/>
-            <Route path="/search" element={<Search user={user}/>}/>
+            <Route path="/search" element={<Search user={user} setUser={setUser}/>}/>
+            {/* TODO: import not found component */}
         </Routes>
         </main>
 
