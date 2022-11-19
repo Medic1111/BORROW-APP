@@ -8,6 +8,7 @@ import Register from "./Register";
 import CreateEntry from "./CreateEntry";
 import UserAccount from "./UserAccount";
 import Search from "./Search";
+import "../styles/layout.css"
 
 export default function Layout(){
     const [isAuth, setIsAuth] = useState(false);
