@@ -17,12 +17,10 @@ export default function Layout(){
     const [loans, setLoans] = useState([]);
     const userValidation = (JSON.parse(localStorage.getItem("userValidation")));
 
-    useEffect(() => {
+    useEffect(async() => {
         console.log(userValidation.token)
         console.log(isAuth);
 
-    // user gets a token when registering OR logging in
-    // checks if token is expired
         const isTokenExp = () => {
           const storedData = localStorage.getItem("userValidation");
       
@@ -38,6 +36,7 @@ export default function Layout(){
         };
         isTokenExp();
     }, []);
+
     
     return (
         <main>

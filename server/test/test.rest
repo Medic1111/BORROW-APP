@@ -1,4 +1,4 @@
-GET http://localhost:3002/api/v1/test
+GET http://localhost:3002/api/v1/test HTTP/1.1
 
 ###
 
@@ -30,4 +30,42 @@ Content-Type: application/json
   "email": "med12@mic.com",
   "username": "medi1nonon1",
   "password": "111111"
+}
+
+### 
+
+GET http://localhost:3002/api/v1/search/espinalhe1 HTTP/1.1
+###
+
+POST http://localhost:3002/api/v1/loan HTTP/1.1
+Content-Type: application/json
+
+{
+  "lender": "isticanja1t",
+  "borrower": "yeyoteef",
+  "status": "pending",
+  "creation_date": "2022-11-18T04:00:00.000Z",
+  "due_date": "2022-11-30T04:00:00.000Z",
+  "amount": "10.00",
+  "description": "TEST CREATING NEW LOAN",
+  "payment_date": "2022-11-30",
+  "transaction_rating": 0
+}
+
+### 
+
+PUT http://localhost:3002/api/v1/loan HTTP/1.1
+Content-Type: application/json
+
+{
+  "loan_id": 48,
+  "lender": "isticanja1t",
+  "borrower": "yeyoteef",
+  "status": "denied",
+  "creation_date": "2022-11-18T04:00:00.000Z",
+  "due_date": "2022-11-30T04:00:00.000Z",
+  "amount": "1000000.00",
+  "description": "UPDATING LOAN TEST-- status DENIED",
+  "payment_date": "2022-11-30T04:00:00.000Z",
+  "transaction_rating": 0
 }

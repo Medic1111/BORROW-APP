@@ -16,38 +16,18 @@ app.use(express.static(path.resolve(__dirname, "../client/build")));
 const validate = require("./routes/validate");
 const loginRoute = require("./routes/login");
 const registerRoute = require("./routes/register");
+const searchRoute = require("./routes/search");
+const createLoanRoute = require("./routes/create_loan");
+const updateLoanRoute = require("./routes/update_loan");
 
 // PERSONAL MIDDLEWARES
 app.use("/", validate);
 app.use("/", loginRoute);
 app.use("/", registerRoute);
-
+app.use("/", searchRoute);
+app.use("/", createLoanRoute);
+app.use("/", updateLoanRoute);
 // DEV ROUTE
-
-app.get("/api/v1/test", (req, res) => {
-  res.json({ message: "Hello from API" });
-});
-
-app.get("/api/v1/search/:user", (req, res) => {
-  const username = req.params.user;
-  console.log(username)
-
-  pool.query(
-    `SELECT * FROM users WHERE username = '${username}'`,
-    (error, results) => {
-      console.log(results)
-      if (error)
-        return res.status(500).json({ message: "Oops, something went wrong" });
-
-      if (results.rows.length <= 0)
-        return res.status(404).json({ message: "User not registered" });
-
-      res.status(200).json({
-        user: results.rows[0],
-      });
-    }
-  );
-});
 
 // UNIVERSAL ROUTE
 

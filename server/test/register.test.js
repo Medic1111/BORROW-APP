@@ -72,7 +72,6 @@ describe("Testing routes and responses for REGISTER", () => {
       .expect(409)
       .expect("Content-Type", /json/)
       .then((serverRes) => {
-        console.log(serverRes.body);
         expect(serverRes.body).toBeDefined();
         expect(serverRes.body).toEqual(expect.any(Object));
         expect(serverRes.body).toEqual(
