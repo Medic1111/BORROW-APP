@@ -58,7 +58,7 @@ PUT http://localhost:3002/api/v1/loan HTTP/1.1
 Content-Type: application/json
 
 {
-  "loan_id": 3,
+  "loan_id": 48,
   "lender": "isticanja1t",
   "borrower": "yeyoteef",
   "status": "denied",
