@@ -1,12 +1,13 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import Nav from "./Nav";
 
 export default function Dashboard({ token, user, loans}){
     const navigate = useNavigate();
 
     return (
         <div>
-            <h1>Hello, {user.username}!</h1>
+            <h1>Hello, {user}!</h1>
             <h2>Activity</h2>
             {loans.length && loans.map((loan)=>{
                 return (
@@ -32,6 +33,7 @@ export default function Dashboard({ token, user, loans}){
         {/* this button will be rendered on the user's account page
             <button
                 onClick={()=>navigate(`/account/${user.username}`)}>view account</button> */}
+                <Nav/>
         </div>
     )
 };

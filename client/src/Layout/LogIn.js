@@ -1,8 +1,12 @@
 
 import React, { useState } from "react";
 import { logIn } from "../utils/api";
-
-import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
+import "../styles/login.css";
+import cancelActive from "../styles/images/X-hover.png";
+import cancelInactive from "../styles/images/X-inactive.png";
+import submitActive from "../styles/images/submit-hover.png";
+import submitInactive from "../styles/images/submit-inactive.png";
 
 export default function LogIn({ setIsAuth, setToken, setUser, setLoans }){
     // user logs in, recieves a token
@@ -11,6 +15,8 @@ export default function LogIn({ setIsAuth, setToken, setUser, setLoans }){
         username: "",
         password: ""
     };
+    const [cancelHover, setCancelHover] = useState(false);
+    const [submitHover, setSubmitHover] = useState(false);
     const[ formData,setFormData ] = useState(loginData);
     const [formErr, setFormErr] = useState(null);
     const navigate = useNavigate();
@@ -48,17 +54,29 @@ export default function LogIn({ setIsAuth, setToken, setUser, setLoans }){
     };
 
     return(
-        <div>
-            <h1>Log in page</h1>
+        <div id="Login">
+             <img
+                src={cancelHover ? cancelActive : cancelInactive}
+                onMouseOver={()=>setCancelHover(true)}
+                onMouseLeave={()=>setCancelHover(false)}
+                id="cancel"/>
+
             {formErr && <p>{formErr}</p>}
+           
+            <h1>Login</h1>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="username">Username</label>
-                <input name="username" type="text" onChange={handleInputChange} value={formData.username}/>
+                <input name="username" type="text" placeholder="username" onChange={handleInputChange} value={formData.username}/>
 
                 <label htmlFor="password">Password</label>
-                <input name="password" type="password" onChange={handleInputChange} value={formData.password}/>
+                <input name="password" type="password" placeholder="password" onChange={handleInputChange} value={formData.password}/>
 
-                <button type="submit">Log in</button>
+                <button type="submit">
+                    <img 
+                        src={submitHover ? submitActive : submitInactive}
+                        onMouseOver={()=>setSubmitHover(true)}
+                        onMouseLeave={()=>setSubmitHover(false)}/>
+                </button>
             </form>
         </div>
     )
