@@ -47,14 +47,15 @@ const loginControl = async (req, res) => {
       return res.status(403).json({ message: "Incorrect password" });
     }
 
-    let token = jwt.sign({ username }, `${process.env.TOKEN_SECRET}`, {
+    let token;
+    token = jwt.sign({ username }, `${process.env.TOKEN_SECRET}`, {
       expiresIn: "600s",
     });
 
     return res.status(200).json({
       user: user.username,
       token,
-      loans: loans || []
+      loans: loans || [],
     });
   });
 };
