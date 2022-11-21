@@ -30,6 +30,7 @@ const loginControl = async (req, res) => {
 
   let results = await getUserByUsername(username);
   const user = results.rows[0];
+  console.log(user);
 
   if (!user) return res.status(404).json({ message: "User not registered" });
 
