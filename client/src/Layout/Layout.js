@@ -18,7 +18,7 @@ export default function Layout(){
     const userValidation = (JSON.parse(localStorage.getItem("userValidation")));
 
     useEffect(() => {
-        console.log(userValidation.token)
+        // console.log(userValidation.token)
         console.log(isAuth);
 
         const isTokenExp = () => {
